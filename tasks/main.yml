@@ -1,0 +1,14 @@
+---
+- name: install conky
+  become: true
+  package:
+    name: conky
+    state: present
+  tags: [ 'conky' ]
+
+- name: generate ~/.conkyrc
+  become: false
+  template:
+    src: conkyrc.j2
+    dest: ~/.conkyrc
+  tags: [ 'conky' ]
