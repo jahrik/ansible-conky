@@ -1,0 +1,8 @@
+---
+- name: install conky
+  become: true
+  package:
+    name: conky
+    state: present
+  tags:
+    - conky
