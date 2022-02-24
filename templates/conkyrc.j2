@@ -7,8 +7,8 @@ cpu_avg_samples 2
 default_color 555555
 default_outline_color white
 default_shade_color white
-color_01 {{ conky.color_01 }}
-color_02 {{ conky.color_02 }}
+color1 {{ conky.color1 }}
+color2 {{ conky.color2 }}
 draw_borders no
 draw_graph_borders yes
 draw_outline no
@@ -35,22 +35,22 @@ show_graph_range no
 text_buffer_size 2048
 
 TEXT
-${color_02}Uptime:$color_01 $uptime
-${color_02}Frequency (in MHz):$color_01 $freq
-${color_02}Frequency (in GHz):$color_01 $freq_g
-${color_02}RAM Usage:$color_01 $mem/$memmax - $memperc% ${membar 4}
-${color_02}Swap Usage:$color_01 $swap/$swapmax - $swapperc% ${swapbar 4}
-${color_02}CPU Usage:$color_01 $cpu% ${cpubar 4}
-${color_02}Processes:$color_01 $processes  ${color_02}Running:$color_01 $running_processes
+${color2}Uptime:$color1 $uptime
+${color2}Frequency (in MHz):$color1 $freq
+${color2}Frequency (in GHz):$color1 $freq_g
+${color2}RAM Usage:$color1 $mem/$memmax - $memperc% ${membar 4}
+${color2}Swap Usage:$color1 $swap/$swapmax - $swapperc% ${swapbar 4}
+${color2}CPU Usage:$color1 $cpu% ${cpubar 4}
+${color2}Processes:$color1 $processes  ${color2}Running:$color1 $running_processes
 $hr
-${color_02}File systems:
-${color_02}/ $color_01${fs_used /}/${fs_size /} ${fs_bar 6 /}
-${color_02}/home $color_01${fs_used /home}/${fs_size /home} ${fs_bar 6 /home}
-${color_02}Networking:
-Up:$color_01 ${upspeed {{ conky.interface  }}} ${color_02} - Down:$color_01 ${downspeed {{ conky.interface  }}}
+${color2}File systems:
+${color2}/ $color1${fs_used /}/${fs_size /} ${fs_bar 6 /}
+${color2}/home $color1${fs_used /home}/${fs_size /home} ${fs_bar 6 /home}
+${color2}Networking:
+Up:$color1 ${upspeed {{ conky.interface  }}} ${color2} - Down:$color1 ${downspeed {{ conky.interface  }}}
 $hr
-${color_02}Name              PID   CPU%   MEM%
-${color_01} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
-${color_01} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
-${color_01} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color2}Name              PID   CPU%   MEM%
+${color1} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color1} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color1} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
 

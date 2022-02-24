@@ -2,7 +2,7 @@ install: false
 conky:
   font: DejaVuSansMono Nerd Font Mono
   update_int: 2
-  color_01: FFCC99
-  color_02: 33CC33
-  color_03: 33CC99
+  color1: FFCC99
+  color2: 33CC33
+  color3: 33CC99
   interface: "{{ ansible_default_ipv4['interface'] }}"

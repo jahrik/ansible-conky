@@ -4,6 +4,8 @@
 
 Install Conky and basic configs
 
+![screenshot of conky](./conky.png)
+
 ## Requirements
 
 None
