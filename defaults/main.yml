@@ -1,4 +1,4 @@
-install: false
+install: true
 conky:
   font: DejaVuSansMono Nerd Font Mono
   update_int: 2
