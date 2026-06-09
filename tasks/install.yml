@@ -1,8 +1,10 @@
 ---
-- ansible.builtin.include_tasks: archlinux.yml
+- name: Install conky (Arch)
+  ansible.builtin.include_tasks: archlinux.yml
   when: ansible_os_family == 'Archlinux'
 
-- ansible.builtin.include_tasks: debian.yml
+- name: Install conky (Debian)
+  ansible.builtin.include_tasks: debian.yml
   when: ansible_os_family == 'Debian'
 
 - name: Generate ~/.conkyrc
