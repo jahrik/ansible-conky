@@ -1,7 +1,7 @@
 ---
-- name: install conky
+- name: Install conky
   become: true
-  package:
+  community.general.pacman:
     name: conky
     state: present
   tags:
