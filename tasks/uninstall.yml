@@ -1,7 +1,7 @@
 ---
 - name: Uninstall conky
   become: true
-  package:
+  ansible.builtin.package:
     name:
       - conky
       - conky-all
@@ -11,7 +11,7 @@
 
 - name: Destroy ~/.conkyrc
   become: false
-  file:
+  ansible.builtin.file:
     path: ~/.conkyrc
     state: absent
   tags:

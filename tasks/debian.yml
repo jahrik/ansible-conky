@@ -1,8 +1,9 @@
 ---
-- name: Update Repository cache
+- name: Install conky-all
   become: true
-  apt:
-    package: conky-all
+  ansible.builtin.apt:
+    name: conky-all
+    state: present
     update_cache: true
     cache_valid_time: 3600
   tags:
