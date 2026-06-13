@@ -28,13 +28,9 @@ Installs [Conky](https://github.com/brndnmtthws/conky) system monitor and deploy
 ## Testing
 
 ```bash
-# Lint
-PATH="$HOME/.venv/ansible/bin:$PATH" yamllint .
-
-# Full test (Arch + Ubuntu containers)
-mtest test
-
-# Iterative
-mtest converge
-mtest destroy
+yamllint .
+ansible-lint
+molecule test
+molecule converge
+molecule destroy
 ```
