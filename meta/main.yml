@@ -16,3 +16,6 @@ galaxy_info:
         - focal
   galaxy_tags:
     - conky
+
+dependencies:
+  - role: jahrik.nerd_fonts
