@@ -13,6 +13,16 @@
         that: conky_bin.stat.exists
         fail_msg: "conky binary not found at /usr/bin/conky"
 
+    - name: Run conky --version
+      ansible.builtin.command: conky --version
+      register: conky_version
+      changed_when: false
+
+    - name: Assert conky version output
+      ansible.builtin.assert:
+        that: "'conky' in conky_version.stdout | lower"
+        fail_msg: "conky --version did not produce expected output"
+
     - name: Check ~/.conkyrc
       ansible.builtin.stat:
         path: ~/.conkyrc
