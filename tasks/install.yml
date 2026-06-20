@@ -12,5 +12,6 @@
   ansible.builtin.template:
     src: conkyrc.j2
     dest: ~/.conkyrc
+    mode: '0644'
   tags:
     - conky
