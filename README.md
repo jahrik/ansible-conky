@@ -1,43 +1,60 @@
-## Conky
+# CONKY
 
 [![CICD](https://github.com/jahrik/ansible-conky/actions/workflows/cicd.yml/badge.svg)](https://github.com/jahrik/ansible-conky/actions/workflows/cicd.yml)
+[![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-jahrik.conky-blue?logo=ansible)](https://galaxy.ansible.com/ui/standalone/roles/jahrik/conky/)
 
-Install Conky and basic configs
+Installs [Conky](https://github.com/brndnmtthws/conky) system monitor and deploys a templated `~/.conkyrc` config file. Supports Arch Linux and Debian/Ubuntu. Font rendering requires [DejaVu Sans Mono Nerd Font](https://github.com/ryanoasis/nerd-fonts), installed automatically via the `jahrik.nerd_fonts` dependency.
 
-![screenshot of conky](./conky.png)
+## OS Support
 
-## Requirements
-
-None
+| Platform | Install method |
+|---|---|
+| Arch Linux | `pacman` installs `conky` |
+| Debian / Ubuntu | `apt` installs `conky-all` (all protocols and features) |
 
 ## Role Variables
 
-Install or uninstall and remove conifg file
-
-    install: true
-
-Conky variables
-
-    conky:
-      font: DejaVuSansMono Nerd Font Mono
-      update_int: 2
-      color_01: FFCC99
-      color_02: 33CC33
-      color_03: 33CC99
-      interface: "{{ ansible_default_ipv4['interface'] }}"
-
-## Dependencies
-
-None
+| Variable | Default | Description |
+|---|---|---|
+| `install` | `true` | Set to `false` to uninstall Conky and remove `~/.conkyrc` |
+| `conky.font` | `DejaVuSansMono Nerd Font Mono` | Font used in `~/.conkyrc` |
+| `conky.update_int` | `2` | Conky update interval in seconds |
+| `conky.color1` | `FFCC99` | Primary highlight color (hex, no `#`) |
+| `conky.color2` | `33CC33` | Secondary highlight color (hex, no `#`) |
+| `conky.color3` | `33CC99` | Tertiary highlight color (hex, no `#`) |
+| `conky.interface` | `ansible_default_ipv4.interface` | Network interface shown in bandwidth stats |
 
 ## Example Playbook
 
-    - hosts: all
-      become: true
-      vars:
-        install: true
-      roles:
-        - jahrik.conky
+```yaml
+- hosts: all
+  roles:
+    - jahrik.conky
+```
+
+To uninstall:
+
+```yaml
+- hosts: all
+  vars:
+    install: false
+  roles:
+    - jahrik.conky
+```
+
+## Testing
+
+```bash
+molecule test
+```
+
+Step by step:
+
+```bash
+molecule converge
+molecule verify
+molecule destroy
+```
 
 ## License
 
@@ -46,5 +63,3 @@ GPLv2
 ## Author Information
 
 jahrik@gmail.com
-
-https://homelab.business/
