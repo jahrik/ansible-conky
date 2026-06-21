@@ -45,6 +45,10 @@ To uninstall:
 ## Testing
 
 ```bash
+uv sync
+source .venv/bin/activate
+yamllint .
+ansible-lint
 molecule test
 ```
 
