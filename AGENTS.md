@@ -30,6 +30,8 @@ The `conkyrc.j2` template renders uptime, CPU/RAM/swap usage, filesystem usage f
 ## Testing
 
 ```bash
+uv sync
+source .venv/bin/activate
 yamllint .
 ansible-lint
 molecule test
