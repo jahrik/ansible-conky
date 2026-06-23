@@ -1,9 +1,16 @@
 ---
+- name: Update pacman cache
+  become: true
+  community.general.pacman:
+    update_cache: true
+  changed_when: false
+  tags:
+    - conky
+
 - name: Install conky
   become: true
   community.general.pacman:
     name: conky
     state: present
-    update_cache: true
   tags:
     - conky
