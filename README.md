@@ -1,4 +1,4 @@
-# CONKY
+# ansible-conky
 
 [![CICD](https://github.com/jahrik/ansible-conky/actions/workflows/cicd.yml/badge.svg)](https://github.com/jahrik/ansible-conky/actions/workflows/cicd.yml)
 [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-jahrik.conky-blue?logo=ansible)](https://galaxy.ansible.com/ui/standalone/roles/jahrik/conky/)
@@ -50,14 +50,6 @@ source .venv/bin/activate
 yamllint .
 ansible-lint
 molecule test
-```
-
-Step by step:
-
-```bash
-molecule converge
-molecule verify
-molecule destroy
 ```
 
 ## License
