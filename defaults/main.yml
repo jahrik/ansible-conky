@@ -5,4 +5,4 @@ conky:
   color1: FFCC99
   color2: 33CC33
   color3: 33CC99
-  interface: "{{ ansible_default_ipv4['interface'] }}"
+  interface: "{{ ansible_facts['default_ipv4']['interface'] }}"
