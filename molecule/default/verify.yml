@@ -32,3 +32,36 @@
       ansible.builtin.assert:
         that: conkyrc.stat.exists
         fail_msg: "~/.conkyrc not found"
+
+- name: Converge uninstall path
+  hosts: all
+  tasks:
+    - name: "Include jahrik.conky (uninstall)"
+      ansible.builtin.include_role:
+        name: "jahrik.conky"
+      vars:
+        install: false
+
+- name: Verify uninstall
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check conky binary absent
+      ansible.builtin.stat:
+        path: /usr/bin/conky
+      register: conky_bin_removed
+
+    - name: Assert conky binary removed
+      ansible.builtin.assert:
+        that: not conky_bin_removed.stat.exists
+        fail_msg: "conky binary still present at /usr/bin/conky after uninstall"
+
+    - name: Check ~/.conkyrc absent
+      ansible.builtin.stat:
+        path: ~/.conkyrc
+      register: conkyrc_removed
+
+    - name: Assert conkyrc removed
+      ansible.builtin.assert:
+        that: not conkyrc_removed.stat.exists
+        fail_msg: "~/.conkyrc still present after uninstall"
