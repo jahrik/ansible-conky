@@ -40,4 +40,4 @@ argument_specs:
             description: "Tertiary color (hex, no leading #)"
           interface:
             type: str
-            description: Network interface to report up/down speed for
+            description: Network interface conky reports up/down speed for; auto-detected from the default IPv4 route when unset
