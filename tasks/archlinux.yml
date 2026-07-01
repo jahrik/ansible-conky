@@ -3,7 +3,6 @@
   become: true
   community.general.pacman:
     name: conky
-    state: present
     update_cache: true
   tags:
     - conky

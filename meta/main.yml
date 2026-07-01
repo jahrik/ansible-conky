@@ -18,6 +18,8 @@ galaxy_info:
         - focal
   galaxy_tags:
     - conky
+    - sysmonitor
+    - desktop
 
 dependencies:
   - role: jahrik.nerd_fonts
