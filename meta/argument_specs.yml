@@ -1,0 +1,43 @@
+---
+argument_specs:
+  main:
+    short_description: Install and configure conky
+    options:
+      install:
+        type: bool
+        default: true
+        description: Set to false to uninstall conky and remove its config
+      conky:
+        type: dict
+        description: Values rendered into the generated ~/.conkyrc config
+        default:
+          font: DejaVuSansMono Nerd Font Mono
+          update_int: 2
+          color1: FFCC99
+          color2: 33CC33
+          color3: 33CC99
+          interface: "{{ ansible_facts['default_ipv4']['interface'] }}"
+        options:
+          font:
+            type: str
+            default: DejaVuSansMono Nerd Font Mono
+            description: Font rendered into the generated config
+          update_int:
+            type: int
+            default: 2
+            description: Update interval in seconds
+          color1:
+            type: str
+            default: FFCC99
+            description: "Primary text color (hex, no leading #)"
+          color2:
+            type: str
+            default: 33CC33
+            description: "Secondary/label color (hex, no leading #)"
+          color3:
+            type: str
+            default: 33CC99
+            description: "Tertiary color (hex, no leading #)"
+          interface:
+            type: str
+            description: Network interface conky reports up/down speed for; auto-detected from the default IPv4 route when unset

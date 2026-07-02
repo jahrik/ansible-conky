@@ -42,6 +42,21 @@ To uninstall:
     - jahrik.conky
 ```
 
+## Tags
+
+Run or skip parts of the role with tags:
+
+```bash
+ansible-playbook playbook.yml --tags conky:install
+ansible-playbook playbook.yml --skip-tags conky:uninstall
+```
+
+| Tag | Scope |
+|---|---|
+| `conky` | All role tasks |
+| `conky:install` | Install path only |
+| `conky:uninstall` | Uninstall path only |
+
 ## Testing
 
 ```bash
